@@ -1,0 +1,193 @@
+{
+    "estudiantes": [
+        {
+            "id": 1,
+            "nombre": "Ana Pérez",
+            "edad": 20,
+            "carrera": "Ingeniería de Sistemas",
+            "materias": {
+                "Programación": 95,
+                "Matemáticas": 88,
+                "Física": 78
+            },
+            "promedio": 87,
+            "flags": {
+                "honor_roll": false,
+                "en_riesgo": false,
+                "recuperacion": false
+            }
+        },
+        {
+            "id": 2,
+            "nombre": "Luis Gómez",
+            "edad": 22,
+            "carrera": "Administración",
+            "materias": {
+                "Contabilidad": 85,
+                "Economía": 79,
+                "Estadística": 82
+            },
+            "promedio": 82,
+            "flags": {
+                "honor_roll": false,
+                "en_riesgo": false,
+                "recuperacion": false
+            }
+        },
+        {
+            "id": 4,
+            "nombre": "Carlos Díaz",
+            "edad": 21,
+            "carrera": "Ingeniería Civil",
+            "materias": {
+                "Mecánica": 68,
+                "Topografía": 72,
+                "Materiales": 60
+            },
+            "promedio": 66.67,
+            "flags": {
+                "honor_roll": false,
+                "en_riesgo": false,
+                "recuperacion": false
+            }
+        },
+        {
+            "id": 5,
+            "nombre": "Sofía Herrera",
+            "edad": 23,
+            "carrera": "Derecho",
+            "materias": {
+                "Constitucional": 88,
+                "Civil": 91,
+                "Penal": 87
+            },
+            "promedio": 88.67,
+            "flags": {
+                "honor_roll": false,
+                "en_riesgo": false,
+                "recuperacion": false
+            }
+        },
+        {
+            "id": 6,
+            "nombre": "Jorge Morales",
+            "edad": 20,
+            "carrera": "Ingeniería de Sistemas",
+            "materias": {
+                "Programación": 55,
+                "Matemáticas": 60,
+                "Redes": 58
+            },
+            "promedio": 57.67,
+            "flags": {
+                "honor_roll": false,
+                "en_riesgo": true,
+                "recuperacion": false
+            }
+        },
+        {
+            "id": 7,
+            "nombre": "Luisa Fernández",
+            "edad": 18,
+            "carrera": "Economía",
+            "materias": {
+                "Microeconomía": 77,
+                "Macroeconomía": 80,
+                "Econometría": 65
+            },
+            "promedio": 74,
+            "flags": {
+                "honor_roll": false,
+                "en_riesgo": false,
+                "recuperacion": false
+            }
+        },
+        {
+            "id": 8,
+            "nombre": "Patricia Castro",
+            "edad": 24,
+            "carrera": "Psicología",
+            "materias": {
+                "Teorías": 70,
+                "Evaluación": 75,
+                "Desarrollo": 68
+            },
+            "promedio": 71,
+            "flags": {
+                "honor_roll": false,
+                "en_riesgo": false,
+                "recuperacion": false
+            }
+        },
+        {
+            "id": 9,
+            "nombre": "Ricardo Pérez",
+            "edad": 25,
+            "carrera": "Ingeniería de Sistemas",
+            "materias": {
+                "Programación": 99,
+                "Algoritmos": 96,
+                "Bases de Datos": 94
+            },
+            "promedio": 96.33,
+            "flags": {
+                "honor_roll": true,
+                "en_riesgo": false,
+                "recuperacion": false
+            }
+        },
+        {
+            "id": 10,
+            "nombre": "Daniela López",
+            "edad": 22,
+            "carrera": "Administración",
+            "materias": {
+                "Marketing": 82,
+                "Gestión": 78,
+                "Finanzas": 74
+            },
+            "promedio": 78,
+            "flags": {
+                "honor_roll": false,
+                "en_riesgo": false,
+                "recuperacion": false
+            }
+        },
+        {
+            "id": 11,
+            "nombre": "Andrés Molina",
+            "edad": 23,
+            "carrera": "Medicina",
+            "materias": {
+                "Biología": 58,
+                "Química": 62,
+                "Ética": 60
+            },
+            "promedio": 60,
+            "flags": {
+                "honor_roll": false,
+                "en_riesgo": true,
+                "recuperacion": true
+            }
+        }
+    ],
+    "graduados": [
+        {
+            "id": 3,
+            "nombre": "María Ruiz",
+            "edad": 19,
+            "carrera": "Medicina",
+            "materias": {
+                "Biología": 92,
+                "Química": 90,
+                "Anatomía": 94
+            },
+            "promedio": 92,
+            "flags": {
+                "honor_roll": true,
+                "en_riesgo": false,
+                "recuperacion": false
+            }
+        }
+    ]
+}
