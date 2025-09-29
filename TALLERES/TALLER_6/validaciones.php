@@ -1,4 +1,3 @@
-
 <?php
 function validarNombre($nombre) {
     return !empty($nombre) && strlen($nombre) <= 50;
@@ -10,6 +9,12 @@ function validarEmail($email) {
 
 function validarEdad($edad) {
     return is_numeric($edad) && $edad >= 18 && $edad <= 120;
+}
+
+function validarFechaNacimiento($fechaNacimiento) {
+    $fecha = DateTime::createFromFormat('Y-m-d', $fechaNacimiento);
+    $edad = $fecha ? (new DateTime())->diff($fecha)->y : 0;
+    return $edad >= 18;
 }
 
 function validarSitioWeb($sitioWeb) {
@@ -46,6 +51,22 @@ function validarFotoPerfil($archivo) {
         return false;
     }
 
-    return true;
+    // Generar un nombre único para evitar sobrescribir archivos existentes
+    $carpetaUploads = __DIR__ . '/uploads/';
+    $nombreArchivo = basename($archivo['name']);
+    $rutaDestino = $carpetaUploads . $nombreArchivo;
+
+    // Si el archivo ya existe, generar un nombre único
+    if (file_exists($rutaDestino)) {
+        $nombreArchivo = pathinfo($archivo['name'], PATHINFO_FILENAME); // Nombre del archivo sin extensión
+        $extension = pathinfo($archivo['name'], PATHINFO_EXTENSION);
+        $nombreArchivoUnico = $nombreArchivo . '_' . time() . '.' . $extension; // Añadir timestamp al nombre
+        $rutaDestino = $carpetaUploads . $nombreArchivoUnico;
+    }
+
+    // Guardar la ruta destino única
+    $archivo['name'] = $nombreArchivoUnico;
+
+    return true;  // Si pasa todas las validaciones
 }
 ?>
