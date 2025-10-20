@@ -2,7 +2,7 @@
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
-define('DB_NAME', 'biblioteca');
+define('DB_NAME', 'taller8_db');
 
 function log_error($message) {
     $log_file = 'errors.log';
