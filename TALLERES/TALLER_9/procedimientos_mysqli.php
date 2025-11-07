@@ -48,6 +48,53 @@ function obtenerEstadisticasCliente($conn, $cliente_id) {
 registrarVenta($conn, 1, 1, 2);
 obtenerEstadisticasCliente($conn, 1);
 
+// Procesar devolución
+function procesarDevolucion($conn, $venta_id, $producto_id, $cantidad) {
+    $stmt = mysqli_prepare($conn, "CALL sp_procesar_devolucion(?, ?, ?)");
+    mysqli_stmt_bind_param($stmt, "iii", $venta_id, $producto_id, $cantidad);
+    mysqli_stmt_execute($stmt);
+    echo "Devolución procesada correctamente.<br>";
+    mysqli_stmt_close($stmt);
+}
+
+// Aplicar descuento
+function aplicarDescuentoCliente($conn, $cliente_id) {
+    $stmt = mysqli_prepare($conn, "CALL sp_aplicar_descuento_cliente(?)");
+    mysqli_stmt_bind_param($stmt, "i", $cliente_id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_assoc($result);
+    echo $row['resultado'] . "<br>";
+    mysqli_stmt_close($stmt);
+}
+
+// Reporte bajo stock
+function reporteBajoStock($conn) {
+    $result = mysqli_query($conn, "CALL sp_reporte_bajo_stock()");
+    echo "<h3>Productos con Bajo Stock</h3><table border='1'><tr><th>Producto</th><th>Stock</th><th>Sugerido</th></tr>";
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr><td>{$row['producto']}</td><td>{$row['stock']}</td><td>{$row['sugerido_reposicion']}</td></tr>";
+    }
+    echo "</table>";
+}
+
+// Calcular comisiones
+function calcularComisiones($conn) {
+    $result = mysqli_query($conn, "CALL sp_calcular_comisiones()");
+    echo "<h3>Comisiones por Ventas</h3><table border='1'><tr><th>ID Venta</th><th>Total</th><th>Comisión</th></tr>";
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr><td>{$row['venta_id']}</td><td>{$row['total']}</td><td>{$row['comision']}</td></tr>";
+    }
+    echo "</table>";
+}
+
+// Ejemplos de uso
+procesarDevolucion($conn, 1, 1, 1);
+aplicarDescuentoCliente($conn, 1);
+reporteBajoStock($conn);
+calcularComisiones($conn);
+
+
 mysqli_close($conn);
 ?>
         
