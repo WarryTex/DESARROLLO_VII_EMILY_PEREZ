@@ -36,7 +36,7 @@ if(isset($_POST['agregar'])) {
     <input type="text" name="nombre" required><br><br>
 
     <label>Categoría:</label><br>
-     <select name="categoria" required><br><br>
+     <input type="text" name="categoria" required><br><br>
 
     <label>Precio:</label><br>
     <input type="number" name="precio" required><br><br>
@@ -53,5 +53,4 @@ if(isset($_POST['agregar'])) {
     <a href="index.php" class="btn">Volver</a>
 </div>
 </html>
-
 
