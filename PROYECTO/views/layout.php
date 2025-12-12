@@ -1,24 +1,24 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Layout esta compuesto por un template de booptraps 5, una interfaz sencilla de ecommerce. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce-TanTejidos</title>
-    
-    <!-- Favicon-->
+    <title>Ecommerce-TamiTejidos</title>
+
+    <!--Favicon.ico es utilizado por ser un icono predeterminado como logo en el navegador de nuestra página Ecommerce-->
     <link rel="icon" type="image/x-icon" href="<?php echo BASE_URL; ?>/public/favicon.ico" />
     
-    <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- CSS personalizado (opcional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/assets/css/styles.css">
+    
 </head>
 <body>
-    <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="#!">Tami Tejidos</a>
@@ -28,55 +28,86 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/index.php?action=pedidos">Pedidos</a></li>
                     <li class="nav-item dropdown">
                          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">Todos los productos</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>/index.php?action=productos">Todos los productos</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Para niñas</a></li>
-                                <li><a class="dropdown-item" href="#!">Para niños</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>/index.php?action=productos&categoria=1">Para niñas</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>/index.php?action=productos&categoria=2">Para niños</a></li>
                             </ul>
                         </li>
                 </ul>
-                <form class="d-flex">
-                    <button class="btn btn-outline-dark" type="submit">
-                        <i class="bi-cart-fill me-1"></i>
-                        Carrito
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                    </button>
-                </form>
-            </div>
+                <div class="d-flex align-items-center">
+
+    <?php if (isset($_SESSION['usuario'])): ?>
+    <span class="me-2">Hola, <?= $_SESSION['usuario'] ?></span>
+    <a href="<?= BASE_URL ?>/index.php?action=logout" class="btn btn-outline-dark me-2">Salir</a>
+    <?php else: ?>
+    <a href="<?= BASE_URL ?>/index.php?action=login" class="btn btn-outline-dark me-2">Iniciar Sesión</a>
+    <?php endif; ?>
+    
+    <a href="<?= BASE_URL ?>/index.php?action=carrito" class="btn btn-outline-dark position-relative">
+    <i class="bi-cart-fill me-1"></i>
+    Carrito
+    <span class="badge bg-dark text-white ms-1 rounded-pill"><?= Carrito::contar() ?></span>
+</a>
+</div>
         </div>
     </nav>
 
-   <!-- Header-->
-<header class="header-hero" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8)), url('<?php echo BASE_URL; ?>/public/assets/img/bebe.jpg') no-repeat center center; background-size: cover; background-blend-mode: overlay; min-height: 450px; display: flex; align-items: center; justify-content: center;">
-    <div class="container px-4 px-lg-5">
-        <div class="text-center text-white">
-            <h1 class="display-2 fw-bolder mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">¡Bienvenidos!</h1>
-            <p class="lead fw-bold mb-2" style="font-size: 2rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">Portadocumentos para bebés</p>
-            <p class="fs-5 text-white mb-0">Calidad y estilo para tus documentos</p>
+    <header class="hero-section position-relative overflow-hidden" 
+            style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.65), rgba(236, 72, 153, 0.65)), 
+                   url('<?php echo BASE_URL; ?>/public/assets/img/bebe.jpg') no-repeat center center/cover; 
+                   min-height: 550px; 
+                   display: flex; 
+                   align-items: center; 
+                   justify-content: center;">
+        
+        <div class="particles">
+            <span style="top:15%; left:10%; animation-delay:0s;"></span>
+            <span style="top:40%; left:75%; animation-delay:3s;"></span>
+            <span style="top:60%; left:20%; animation-delay:6s;"></span>
+            <span style="top:30%; left:60%; animation-delay:2s;"></span>
+            <span style="top:80%; left:45%; animation-delay:5s;"></span>
+            <span style="top:20%; left:85%; animation-delay:8s;"></span>
+            <span style="top:70%; left:70%; animation-delay:1s;"></span>
         </div>
-    </div>
-</header>
 
-    <!-- Main Content -->
-    <main>
+        <div class="container px-4 px-lg-5 position-relative z-10">
+            <div class="text-center text-white">
+                <h1 class="display-2 fw-bolder mb-4 animate__animated animate__fadeInDown">
+                    ¡Bienvenidos!
+                </h1>
+                <p class="lead fw-bold mb-2 animate__animated animate__fadeInUp animate__delay-1s" 
+                   style="font-size: 2rem;">
+                    Portadocumentos para bebés
+                </p>
+                <p class="fs-5 mb-0 animate__animated animate__fadeInUp animate__delay-1s">
+                    Calidad y estilo para tus documentos
+                </p>
+            </div>
+        </div>
+
+        <div class="scroll-indicator position-absolute bottom-0 start-50 translate-middle-x mb-4">
+            <i class="bi bi-chevron-down text-white fs-1 animate__animated animate__bounce animate__infinite"></i>
+        </div>
+    </header>
+
+    <!-- Se agregó py-5 para padding vertical superior e inferior -->
+    <main class="py-5 mb-5">
         <?php echo $content; ?>
     </main>
 
-    <!-- Footer-->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
-        </div>
+   <footer class="py-5 mt-5" style="background-color: #6b21a8 !important;">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright © Tami Tejidos 2025</p>
+    </div>
     </footer>
 
-    <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Core theme JS (opcional) -->
     <script src="<?php echo BASE_URL; ?>/public/assets/js/scripts.js"></script>
 </body>
 </html>

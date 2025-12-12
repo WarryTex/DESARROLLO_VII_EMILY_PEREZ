@@ -24,7 +24,8 @@ class producto {
         $this->dimensiones = $data['dimensiones'];
         $this->status_producto = $data['status_producto'];
     }
-
+       
+        //Función para subir imagen a la carpeta del proyecto
  public static function subirImagen($archivo) {
         if (!$archivo || $archivo['error'] !== 0) return null;
         
@@ -52,4 +53,5 @@ class producto {
         return BASE_URL . '/public/assets/img/' . $imagen;
     }
 }
+
 ?>

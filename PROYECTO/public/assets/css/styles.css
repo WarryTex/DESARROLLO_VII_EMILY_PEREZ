@@ -91,6 +91,65 @@
   }
 }
 
+  .hero-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .particles span {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 18s infinite linear;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+            10%  { opacity: 0.7; }
+            90%  { opacity: 0.7; }
+            100% { transform: translateY(-120vh) translateX(100px) rotate(360deg); opacity: 0; }
+        }
+
+        .scroll-indicator i {
+            animation-duration: 2s;
+        }
+
+        /* Color de texto en el hero más brillante y legible */
+        .hero-section .text-white {
+            color: #ffffff !important;
+        }
+
+        .hero-section h1,
+        .hero-section p {
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Efecto hover en todos los botones */
+        .btn-outline-dark {
+            transition: all 0.3s ease;
+            border-color: #555;
+        }
+
+        .btn-outline-dark:hover {
+            background: linear-gradient(135deg, #9333ea, #ec4899);
+            border-color: transparent;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+        }
+
+        .navbar .nav-link {
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #9333ea;
+        }
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -10796,6 +10855,7 @@ textarea.form-control-lg {
   .d-print-inline {
     display: inline !important;
   }
+}
   .d-print-inline-block {
     display: inline-block !important;
   }
@@ -10823,4 +10883,99 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+/* Estilos para formulario de crear producto */
+
+.text-purple {
+    color: #9333ea;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #ec4899;
+    box-shadow: 0 0 0 0.25rem rgba(236, 72, 153, 0.25);
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.rounded-top-4 {
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+}
+
+.rounded-4 {
+    border-radius: 1rem !important;
+}
+
+/* Estilos adicionales para mejorar la experiencia */
+.form-control-lg,
+.form-select-lg {
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+}
+
+.card-header.bg-gradient {
+    background: linear-gradient(135deg, #9333ea, #ec4899) !important;
+}
+
+.btn-primary.btn-lg {
+    background: linear-gradient(135deg, #9333ea, #ec4899);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary.btn-lg:hover {
+    background: linear-gradient(135deg, #7c22d4, #d93d82);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(147, 51, 234, 0.4);
+}
+
+.btn-outline-secondary.btn-lg:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.2);
+}
+
+/* Animación para la alerta de éxito */
+.alert {
+    border-left: 4px solid #198754;
+}
+
+/* Mejora visual para el input de archivo */
+.form-control[type="file"] {
+    cursor: pointer;
+}
+
+.form-control[type="file"]:hover {
+    border-color: #ec4899;
+}
+
+/* Estilo para las etiquetas */
+.form-label {
+    margin-bottom: 0.5rem;
+    color: #000000;
+}
+
+.form-label i {
+    font-size: 1.1rem;
+}
+
+/* Responsive: ajustes para móviles */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 2rem 1.5rem !important;
+    }
+    
+    .card-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .form-control-lg,
+    .form-select-lg {
+        font-size: 1rem;
+    }
 }

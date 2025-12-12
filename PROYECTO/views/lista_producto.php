@@ -1,14 +1,10 @@
 <?php ob_start(); ?>
 
-<!-- Section-->
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
         
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="fw-bold">Nuestros Productos</h2>
-            <a href="<?= BASE_URL ?>/index.php?action=create" class="btn btn-primary">
-                <i class="bi bi-plus-circle me-2"></i>Agregar Producto
-            </a>
         </div>
 
         <?php if ($productos && count($productos) > 0): ?>
@@ -77,22 +73,22 @@
                             </div>
                             
                          
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <?php if ($p['status_producto']): ?>
-                                        <button class="btn btn-outline-dark mt-auto w-100 mb-2" onclick="addToCart(<?= $p['id_producto'] ?>)">
-                                            <i class="bi bi-cart-plus me-1"></i> Agregar al carrito
-                                        </button>
-                                        <button class="btn btn-outline-dark mt-auto w-100 mb-2" onclick="addToCart(<?= $p['id_producto'] ?>)">
-                                            <i class="bi bi-cart-plus me-1"></i> Ver descripción
-                                        </button>
-                                    <?php else: ?>
-                                        <button class="btn btn-secondary mt-auto w-100 mb-2" disabled>
-                                            No disponible
-                                        </button>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
+                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+    <div class="text-center">
+        <?php if ($p['status_producto']): ?>
+           <a href="<?= BASE_URL ?>/index.php?action=carrito_agregar&id=<?= $p['id_producto'] ?>" class="btn btn-outline-dark mt-auto w-100 mb-2">
+             Agregar al carrito
+            </a>
+            <a href="<?= BASE_URL ?>/index.php?action=detalle&id=<?= $p['id_producto'] ?>" class="btn btn-outline-dark mt-auto w-100 mb-2">
+                <i class="bi bi-eye me-1"></i> Ver descripción
+            </a>
+        <?php else: ?>
+            <button class="btn btn-secondary mt-auto w-100 mb-2" disabled>
+                No disponible
+            </button>
+        <?php endif; ?>
+    </div>
+</div>
                             
                         </div>
                     </div>
@@ -110,14 +106,6 @@
         
     </div>
 </section>
-
-<script>
-function addToCart(productId) {
-    // Aquí puedes agregar la funcionalidad del carrito
-    alert('Producto agregado al carrito (ID: ' + productId + ')');
-    // TODO: Implementar lógica del carrito
-}
-</script>
 
 <?php
 $content = ob_get_clean();

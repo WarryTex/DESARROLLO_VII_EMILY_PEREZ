@@ -59,5 +59,5 @@
 
 <?php
 $content = ob_get_clean();
-require BASE_PATH . 'views/layout.php';
+require BASE_PATH . 'views/layoutadmin.php';  
 ?>
